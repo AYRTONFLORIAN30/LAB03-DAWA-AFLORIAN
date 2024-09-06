@@ -1,0 +1,47 @@
+<div class="container p-4" style="margin-top:70px;">
+    <h3 class="text-center text-uppercase">Listado de Productos</h3>
+    <div class="d-flex justify-content-start mb-3">
+        <a href="/producto/add" class="btn btn-danger">Nuevo Producto</a>
+    </div>
+    <table class="table table-bordered text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each productos}}
+            <tr>
+                <td>{{this.nombre}}</td>
+                <td>{{this.categoria}}</td>
+                <td>{{this.precio}}</td>
+                <td>{{this.stock}}</td>
+                <td>
+                    <a href="/producto/edit/{{this.id}}" class="btn btn-warning btn-sm">Actualizar</a>
+                    <form action="/producto/delete/{{this.id}}" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+            <!-- Dato de prueba -->
+            <tr>
+                <td>Smartphone</td>
+                <td>Electrónica</td>
+                <td>500</td>
+                <td>20</td>
+                <td>
+                    <a href="/producto/edit/1" class="btn btn-warning btn-sm">Actualizar</a>
+                    <form action="/producto/delete/1" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
